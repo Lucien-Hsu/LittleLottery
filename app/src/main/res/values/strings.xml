@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LittleLottery</string>
+    <string name="pleasePress">請選擇抽籤方式：</string>
+    <string name="buttonLottery">抽獎</string>
+    <string name="buttonMpickN">M取N</string>
+    <string name="buttonLotteryGroup">抽籤組</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

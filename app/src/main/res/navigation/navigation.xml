@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/titleFragment">
+    <fragment
+        android:id="@+id/titleFragment"
+        android:name="com.example.android.littlelottery.TitleFragment"
+        android:label="TitleFragment" >
+        <action
+            android:id="@+id/action_titleFragment_to_lotteryFragment"
+            app:destination="@id/lotteryFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/lotteryFragment"
+        android:name="com.example.android.littlelottery.LotteryFragment"
+        android:label="LotteryFragment" >
+        <action
+            android:id="@+id/action_lotteryFragment_to_lotteryGoFragment"
+            app:destination="@id/lotteryGoFragment"
+            app:popUpTo="@+id/titleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lotteryGoFragment"
+        android:name="com.example.android.littlelottery.LotteryGoFragment"
+        android:label="fragment_lottery_go"
+        tools:layout="@layout/fragment_lottery_go" />
+</navigation>

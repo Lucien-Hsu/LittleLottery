@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/text_pleasePress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pleasePress"
+            android:textAlignment="center"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button_lottery"
+            style="@style/ButtonStyle"
+            android:background="#03A9F4"
+            android:text="@string/buttonLottery"
+            app:layout_constraintBottom_toTopOf="@+id/button_mPickN"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.842"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_pleasePress"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <Button
+            android:id="@+id/button_lotteryGroup"
+            style="@style/ButtonStyle"
+            android:background="@android:color/holo_orange_dark"
+            android:text="@string/buttonLotteryGroup"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_mPickN" />
+
+        <Button
+            android:id="@+id/button_mPickN"
+            style="@style/ButtonStyle"
+            android:background="@android:color/holo_green_light"
+            android:text="@string/buttonMpickN"
+            app:layout_constraintBottom_toTopOf="@+id/button_lotteryGroup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.842"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_lottery" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
