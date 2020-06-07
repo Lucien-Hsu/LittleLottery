@@ -4,12 +4,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".LotteryFragment">
-
-        <!-- TODO: Update blank fragment layout -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".LotteryFragment">
 
         <TextView
             android:id="@+id/textView"
@@ -18,36 +16,46 @@
             android:text="請輸入籤種數量"
             android:textAlignment="center"
             android:textSize="40sp"
-            app:layout_constraintBottom_toTopOf="@+id/editText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.17000002"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="確認"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText"
-            app:layout_constraintVertical_bias="0.06" />
+            <!--使用Recycle View-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/lottery_list"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#03A9F4"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/button_addItem" />
 
-        <EditText
-            android:id="@+id/editText"
+        <Button
+            android:id="@+id/button_addItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="200dp"
-            android:paddingLeft="200dp"
-            app:layout_constraintBottom_toTopOf="@+id/button"
+            android:layout_marginTop="16dp"
+            android:text="新增籤種"
+            app:layout_constraintEnd_toStartOf="@+id/button_startLottery"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <Button
+            android:id="@+id/button_startLottery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="開始抽籤"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button_addItem"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

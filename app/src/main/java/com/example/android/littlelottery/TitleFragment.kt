@@ -28,6 +28,7 @@ class TitleFragment : Fragment() {
             //取得導航
             Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_lotteryFragment)
         )
+
         return binding.root
     }
 

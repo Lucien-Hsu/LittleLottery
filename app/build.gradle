@@ -37,14 +37,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    //導航
     implementation 'androidx.navigation:navigation-fragment-ktx:2.2.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
 
-    // Kotlin
-//    def nav_version = "2.3.0-beta01"
-//    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
-//    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
-    //導航
-    //implementation "android.arch.navigation:navigation-fragment-ktx:$version_navigation"
-    //implementation "android.arch.navigation:navigation-ui-ktx:$version_navigation"
+    //ViewModel
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
 }
