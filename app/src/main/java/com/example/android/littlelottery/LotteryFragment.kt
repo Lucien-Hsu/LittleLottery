@@ -38,24 +38,33 @@ class LotteryFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding: FragmentLotteryBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_lottery,container, false)
 
+        //[recycle view] 創建適配器
+        val adapter = LotteryAdapter()
+        binding.lotteryList.adapter = adapter
+
         //按下增加項目按鈕則呼叫viewModel.addItem()
-        binding.buttonAddItem.setOnClickListener{viewModel.addItem()}
-        Log.i("LotteryViewModel", "籤種數量是：${viewModel.awardTypeNumber.value}")
+        binding.buttonAddItem.setOnClickListener{
+            viewModel.addItem()
+        }
+        Log.i("LotteryFragment", "籤種數量是：${viewModel.awardTypeNumber.value}")
 
         binding.buttonStartLottery.setOnClickListener(
             //取得導航
             Navigation.createNavigateOnClickListener(R.id.action_lotteryFragment_to_lotteryGoFragment)
         )
 
-        //創建適配器
-        val adapter = LotteryAdapter()
-        binding.lotteryList.adapter = adapter
 
+
+        //利用viewModel更新數據
         viewModel.awardTypeNumber.observe(this, Observer {
             adapter.data.add(3)
             Log.i("LotteryViewModel", "awardTypeNumber 改變了")
         })
 
+        var testA =  mutableListOf<Int>()
+        testA.add(12)
+        Log.i("LotteryViewModel", "testA = $testA")
+        Log.i("LotteryViewModel", "testA.size = ${testA.size}")
 
         return binding.root
     }
