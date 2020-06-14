@@ -53,11 +53,9 @@ class LotteryFragment : Fragment() {
             Navigation.createNavigateOnClickListener(R.id.action_lotteryFragment_to_lotteryGoFragment)
         )
 
-
-
         //利用viewModel更新數據
         viewModel.awardTypeNumber.observe(this, Observer {
-            adapter.data.add(3)
+            adapter.data.add(333)
             Log.i("LotteryViewModel", "awardTypeNumber 改變了")
         })
 

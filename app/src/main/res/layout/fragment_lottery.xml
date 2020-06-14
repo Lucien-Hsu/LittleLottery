@@ -26,7 +26,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/lottery_list"
                     android:layout_width="0dp"
-                    android:layout_height="200dp"
+                    android:layout_height="400dp"
                     android:layout_marginTop="8dp"
                     android:background="#03A9F4"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
