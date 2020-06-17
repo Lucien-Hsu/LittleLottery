@@ -33,7 +33,7 @@ class LotteryAdapter(var myData: MutableList<LotteryType>): RecyclerView.Adapter
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
 //        val item = getItem(position)
-        Log.i("LotteryAdapter", "替換data")
+        Log.i("LotteryAdapter", "onBindViewHolder 綁定資料")
 
         //把項目內容給ViewHolder處理
         holder.bind(item)

@@ -54,8 +54,13 @@ class LotteryFragment : Fragment() {
         //按下增加項目按鈕則呼叫viewModel.addItem()
         binding.buttonAddItem.setOnClickListener{
             viewModel.addItem()
+            //因為目前不知道如何使用data biding 在資料更新時自動更新recycle view ，所以在這邊將viewModel的資料給data，
+            //然後更新recycle view
+            data.clear()
+            data.addAll(viewModel.lottery.value!!)
+            adapter.notifyDataSetChanged()
+            Log.i("LotteryFragment", "片段更新資料")
         }
-        Log.i("LotteryFragment", "籤種數量是：${viewModel.lottery.value}")
 
         binding.buttonStartLottery.setOnClickListener(
             //取得導航
@@ -63,12 +68,10 @@ class LotteryFragment : Fragment() {
         )
 
         //利用viewModel更新數據
-        viewModel.lottery.observe(this, Observer { newData ->
-            //binding.textView.text = newData.toString()
-            //data.add(LotteryType(4,"小小吉",10))
+//        viewModel.lottery.observe(this, Observer { newData ->
+//            Log.i("LotteryFragment", "lottery 改變了")
+//        })
 
-            Log.i("LotteryViewModel", "lottery 改變了")
-        })
         return binding.root
     }
 }
