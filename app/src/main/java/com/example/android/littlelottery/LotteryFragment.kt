@@ -38,15 +38,24 @@ class LotteryFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding: FragmentLotteryBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_lottery,container, false)
 
+        //創建recycle view 所需要的資料
+        var data = mutableListOf<LotteryType>()
+        data.add(LotteryType(1,"大吉",1))
+        data.add(LotteryType(2,"中吉",2))
+        data.add(LotteryType(3,"小吉",3))
+
+
+
         //[recycle view] 創建適配器
-        val adapter = LotteryAdapter()
+        val adapter = LotteryAdapter(data)
+        //綁定view
         binding.lotteryList.adapter = adapter
 
         //按下增加項目按鈕則呼叫viewModel.addItem()
         binding.buttonAddItem.setOnClickListener{
             viewModel.addItem()
         }
-        Log.i("LotteryFragment", "籤種數量是：${viewModel.awardTypeNumber.value}")
+        Log.i("LotteryFragment", "籤種數量是：${viewModel.lottery.value}")
 
         binding.buttonStartLottery.setOnClickListener(
             //取得導航
@@ -54,16 +63,12 @@ class LotteryFragment : Fragment() {
         )
 
         //利用viewModel更新數據
-        viewModel.awardTypeNumber.observe(this, Observer {
-            adapter.data.add(333)
-            Log.i("LotteryViewModel", "awardTypeNumber 改變了")
+        viewModel.lottery.observe(this, Observer { newData ->
+            //binding.textView.text = newData.toString()
+            //data.add(LotteryType(4,"小小吉",10))
+
+            Log.i("LotteryViewModel", "lottery 改變了")
         })
-
-        var testA =  mutableListOf<Int>()
-        testA.add(12)
-        Log.i("LotteryViewModel", "testA = $testA")
-        Log.i("LotteryViewModel", "testA.size = ${testA.size}")
-
         return binding.root
     }
 }

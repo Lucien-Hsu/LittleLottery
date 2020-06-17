@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_lottery.view.*
 
 //實作一個Adapter給RecyclerView用
-class LotteryAdapter: RecyclerView.Adapter<LotteryAdapter.ViewHolder>(){
+class LotteryAdapter(var myData: MutableList<LotteryType>): RecyclerView.Adapter<LotteryAdapter.ViewHolder>(){
 //class LotteryAdapter: ListAdapter<LotteryType, >(LotteryDiffCallback()){
-    var data = MutableList<Int>(10){it+11}
+    var data = myData
         set(value) {
             field = value
             //告訴RecyclerView項目已更新
@@ -43,8 +43,8 @@ class LotteryAdapter: RecyclerView.Adapter<LotteryAdapter.ViewHolder>(){
         var test_tv1: TextView = itemView.findViewById(R.id.textView_test1)
         var test_tv2: TextView = itemView.findViewById(R.id.textView_test2)
 
-        fun bind(item: Int){
-            test_tv1.text = item.toString()
+        fun bind(item: LotteryType){
+            test_tv1.text = item.lotteryType
         }
 
         companion object {

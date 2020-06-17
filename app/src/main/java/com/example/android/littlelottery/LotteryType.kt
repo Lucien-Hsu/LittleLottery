@@ -2,5 +2,6 @@ package com.example.android.littlelottery
 
 data class LotteryType(
     var lotteryId: Int,
-    var lotteryType: String
+    var lotteryType: String,
+    var lotteryTypeNumber: Int
 )
