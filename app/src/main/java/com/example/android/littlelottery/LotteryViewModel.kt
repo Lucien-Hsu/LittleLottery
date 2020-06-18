@@ -30,14 +30,15 @@ class LotteryViewModel: ViewModel(){
 
     //初始化
     init {
-        _lottery.value?.add(LotteryType(5,"測試籤",10))
+        _lottery.value?.add(LotteryType(5,"",10))
         //_awardTypeNumber.value?.add(1)
-        Log.i("LotteryViewModel", "初始化，總籤種數量是：${_lottery.value}")
+        Log.i("LotteryViewModel", "初始化，籤種是：${_lottery.value}")
     }
 
     //增加籤種項目
-    fun addItem(){
-        _lottery.value?.add(LotteryType(6,"新增籤",10))
+    fun addItem(lotteryId: Int, lotteryType: String, lotteryTypeNumber: Int){
+        _lottery.value?.add(LotteryType(lotteryId,lotteryType,lotteryTypeNumber))
+
         //_awardTypeNumber.value?.add(2)
         Log.i("LotteryViewModel", "增加籤種，總籤種數量是：${_lottery.value?.size}")
     }

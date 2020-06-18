@@ -40,11 +40,12 @@ class LotteryAdapter(var myData: MutableList<LotteryType>): RecyclerView.Adapter
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        var test_tv1: TextView = itemView.findViewById(R.id.textView_test1)
-        var test_tv2: TextView = itemView.findViewById(R.id.textView_test2)
+        var tv_typeInput: TextView = itemView.findViewById(R.id.tv_typeInput)
+        var tv_numberInput: TextView = itemView.findViewById(R.id.tv_numberInput)
 
         fun bind(item: LotteryType){
-            test_tv1.text = item.lotteryType
+            tv_typeInput.text = item.lotteryType
+            tv_numberInput.text = item.lotteryTypeNumber.toString()
         }
 
         companion object {

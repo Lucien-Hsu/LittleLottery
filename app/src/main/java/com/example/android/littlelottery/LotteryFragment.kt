@@ -40,11 +40,7 @@ class LotteryFragment : Fragment() {
 
         //創建recycle view 所需要的資料
         var data = mutableListOf<LotteryType>()
-        data.add(LotteryType(1,"大吉",1))
-        data.add(LotteryType(2,"中吉",2))
-        data.add(LotteryType(3,"小吉",3))
-
-
+        data.add(LotteryType(1,"111",1))
 
         //[recycle view] 創建適配器
         val adapter = LotteryAdapter(data)
@@ -53,7 +49,15 @@ class LotteryFragment : Fragment() {
 
         //按下增加項目按鈕則呼叫viewModel.addItem()
         binding.buttonAddItem.setOnClickListener{
-            viewModel.addItem()
+//            viewModel.addItem(2, binding.etType.getText().toString(), binding.etNumber.getText().toString().toInt())
+            var lotteryTypeNumber = 1
+            if(binding.etNumber.text != null) {
+                lotteryTypeNumber = binding.etNumber.text.toString().toInt()
+            }
+            viewModel.addItem(2, binding.etType.text.toString(), lotteryTypeNumber)
+
+//            data.add(LotteryType(2,binding.etType.getText().toString(),binding.etNumber.getText().toString().toInt()))
+
             //因為目前不知道如何使用data biding 在資料更新時自動更新recycle view ，所以在這邊將viewModel的資料給data，
             //然後更新recycle view
             data.clear()

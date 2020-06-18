@@ -7,40 +7,47 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView_test1"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView_type"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_test"
-        app:layout_constraintTop_toTopOf="@+id/button_test"
-        tools:text="TEST~!!!!!!" />
-
-    <Button
-        android:id="@+id/button_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="籤種名稱："
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView_test2"
+        android:id="@+id/tv_typeInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="8dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_type"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_test"
-        app:layout_constraintTop_toBottomOf="@+id/textView_test1"
-        tools:text="測試用字串" />
+        app:layout_constraintStart_toEndOf="@+id/textView_type"
+        app:layout_constraintTop_toTopOf="@+id/textView_type"
+        android:text="預設籤"/>
+
+    <TextView
+        android:id="@+id/textView_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="數量："
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView_type"
+        app:layout_constraintTop_toBottomOf="@+id/textView_type"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tv_numberInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_type"
+        app:layout_constraintTop_toTopOf="@+id/textView_number"
+        android:text="0"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
