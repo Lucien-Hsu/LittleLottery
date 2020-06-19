@@ -30,7 +30,7 @@ class LotteryViewModel: ViewModel(){
 
     //初始化
     init {
-        _lottery.value?.add(LotteryType(5,"",10))
+        //_lottery.value?.add(LotteryType(5,"",10))
         //_awardTypeNumber.value?.add(1)
         Log.i("LotteryViewModel", "初始化，籤種是：${_lottery.value}")
     }

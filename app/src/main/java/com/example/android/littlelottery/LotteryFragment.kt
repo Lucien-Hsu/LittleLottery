@@ -40,7 +40,7 @@ class LotteryFragment : Fragment() {
 
         //創建recycle view 所需要的資料
         var data = mutableListOf<LotteryType>()
-        data.add(LotteryType(1,"111",1))
+        //data.add(LotteryType(1,"111",1))
 
         //[recycle view] 創建適配器
         val adapter = LotteryAdapter(data)
@@ -51,7 +51,7 @@ class LotteryFragment : Fragment() {
         binding.buttonAddItem.setOnClickListener{
 //            viewModel.addItem(2, binding.etType.getText().toString(), binding.etNumber.getText().toString().toInt())
             var lotteryTypeNumber = 1
-            if(binding.etNumber.text != null) {
+            if(binding.etNumber.text.toString() != "") {
                 lotteryTypeNumber = binding.etNumber.text.toString().toInt()
             }
             viewModel.addItem(2, binding.etType.text.toString(), lotteryTypeNumber)
