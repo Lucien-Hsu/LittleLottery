@@ -21,13 +21,14 @@ class TitleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val binding: FragmentTitleBinding = DataBindingUtil.inflate(inflater, fragment_title,container, false)
+        val binding: FragmentTitleBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_title,container, false)
 
 
         binding.buttonLottery.setOnClickListener(
             //取得導航
             Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_lotteryFragment)
         )
+
 
         return binding.root
     }
