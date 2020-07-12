@@ -13,6 +13,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:tag="layout/fragment_lottery"
             tools:context=".LotteryFragment">
 
                 <!--使用Recycle View-->
@@ -100,7 +101,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/button_addItem" />
 
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

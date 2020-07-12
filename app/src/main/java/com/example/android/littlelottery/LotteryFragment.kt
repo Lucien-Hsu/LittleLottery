@@ -1,21 +1,16 @@
 package com.example.android.littlelottery
 
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.navigation.findNavController
 import com.example.android.littlelottery.databinding.FragmentLotteryBinding
 
 /**
@@ -47,16 +42,22 @@ class LotteryFragment : Fragment() {
         //綁定view
         binding.lotteryList.adapter = adapter
 
+        //先載入目前內容
+        data.addAll(viewModel.lottery.value!!)
+
+        //籤種ID
+        var lotteryId = 0
+
         //按下增加項目按鈕則呼叫viewModel.addItem()
         binding.buttonAddItem.setOnClickListener{
 //            viewModel.addItem(2, binding.etType.getText().toString(), binding.etNumber.getText().toString().toInt())
+
+            lotteryId += 1
             var lotteryTypeNumber = 1
             if(binding.etNumber.text.toString() != "") {
                 lotteryTypeNumber = binding.etNumber.text.toString().toInt()
             }
-            viewModel.addItem(2, binding.etType.text.toString(), lotteryTypeNumber)
-
-//            data.add(LotteryType(2,binding.etType.getText().toString(),binding.etNumber.getText().toString().toInt()))
+            viewModel.addItem(lotteryId, binding.etType.text.toString(), lotteryTypeNumber)
 
             //因為目前不知道如何使用data biding 在資料更新時自動更新recycle view ，所以在這邊將viewModel的資料給data，
             //然後更新recycle view
@@ -64,12 +65,34 @@ class LotteryFragment : Fragment() {
             data.addAll(viewModel.lottery.value!!)
             adapter.notifyDataSetChanged()
             Log.i("LotteryFragment", "片段更新資料")
+            Log.i("LotteryFragment", "viewModel.lottery.value.toString()：${viewModel.lottery.value.toString()}")
         }
 
-        binding.buttonStartLottery.setOnClickListener(
-            //取得導航
-            Navigation.createNavigateOnClickListener(R.id.action_lotteryFragment_to_lotteryGoFragment)
-        )
+        var testA: Int = 5566
+//        binding.buttonStartLottery.setOnClickListener { view: View ->
+//            view.findNavController().navigate(LotteryFragmentDirections.actionLotteryFragmentToLotteryGoFragment())
+//        }
+
+//====================================================================================================================================
+        //按下開始抽籤的按鈕則做
+        binding.buttonStartLottery.setOnClickListener {
+
+            //將 viewModel.lottery.value 轉為陣列
+            var arraySize : Int = viewModel.lottery.value!!.size                    //取得陣列所需大小
+            var lotteryArrayData = Array<LotteryType>(arraySize){                  //初始化要存資料的陣列
+                LotteryType(1,"無",1)
+            }
+
+            var arrayIndex : Int = arraySize - 1                               //設定陣列所需的索引值
+            for(i in 0..arrayIndex){                                     //以迴圈將List資料給陣列
+                lotteryArrayData[i] = viewModel.lottery.value?.get(i)!!
+            }
+
+//            傳遞序列化後的抽籤資料
+            val action = LotteryFragmentDirections.actionLotteryFragmentToLotteryGoFragment(lotteryArrayData)
+            Navigation.findNavController(binding.root).navigate(action)
+        }
+//====================================================================================================================================
 
         //利用viewModel更新數據
 //        viewModel.lottery.observe(this, Observer { newData ->

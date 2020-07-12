@@ -6,11 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.navArgs
 
 /**
  * A simple [Fragment] subclass.
  */
 class LotteryResultFragment : Fragment() {
+
+    //接收safe-args
+    val args: LotteryResultFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
