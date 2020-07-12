@@ -93,6 +93,14 @@ class LotteryFragment : Fragment() {
             Navigation.findNavController(binding.root).navigate(action)
         }
 //====================================================================================================================================
+        //按下清除按鈕則做
+        binding.buttonClear.setOnClickListener {
+            viewModel.clearItem()
+            data.clear()
+            adapter.notifyDataSetChanged()
+        }
+
+
 
         //利用viewModel更新數據
 //        viewModel.lottery.observe(this, Observer { newData ->

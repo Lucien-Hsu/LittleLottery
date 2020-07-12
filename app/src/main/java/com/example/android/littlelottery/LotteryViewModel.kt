@@ -43,6 +43,9 @@ class LotteryViewModel: ViewModel(){
         Log.i("LotteryViewModel", "增加籤種，總籤種數量是：${_lottery.value?.size}")
     }
 
+    fun clearItem(){
+        _lottery.value?.clear()
+    }
 
 
     //覆寫onCleared()

@@ -13,6 +13,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#323232"
             android:tag="layout/fragment_lottery"
             tools:context=".LotteryFragment">
 
@@ -25,6 +26,7 @@
                     android:layout_marginTop="8dp"
                     android:text="請輸入籤種名稱："
                     android:textAlignment="center"
+                    android:textColor="#FFFFFF"
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -36,6 +38,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:ems="10"
+                    android:textColor="#FFEB3B"
+                    android:textColorHint="#FFEB3B"
+                    android:textColorLink="#FF5722"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_type"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tv_type"
@@ -49,6 +54,7 @@
                     android:layout_marginTop="8dp"
                     android:text="請輸入籤種數量："
                     android:textAlignment="center"
+                    android:textColor="#FFFFFF"
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_type"
@@ -60,6 +66,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:ems="10"
+                    android:textColor="#FFEB3B"
+                    android:textColorHint="#FFEB3B"
+                    android:textColorLink="#FF5722"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_number"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tv_number"
@@ -69,10 +78,9 @@
                     android:id="@+id/button_addItem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
                     android:layout_marginTop="16dp"
                     android:text="確認新增"
-                    app:layout_constraintEnd_toStartOf="@+id/button_startLottery"
-                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintHorizontal_chainStyle="spread"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_number" />
@@ -82,23 +90,36 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:layout_marginEnd="32dp"
                     android:text="開始抽籤"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/button_addItem"
                     app:layout_constraintTop_toBottomOf="@+id/tv_number" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/lottery_list"
                     android:layout_width="0dp"
-                    android:layout_height="400dp"
+                    android:layout_height="0dp"
                     android:layout_marginTop="8dp"
-                    android:background="#03A9F4"
+                    android:background="#FFFFFF"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button_addItem" />
+                    app:layout_constraintTop_toBottomOf="@+id/button_addItem"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <Button
+                    android:id="@+id/button_clear"
+                    style="@style/Widget.AppCompat.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="清除"
+                    android:textColor="#E91E63"
+                    app:layout_constraintEnd_toStartOf="@+id/button_startLottery"
+                    app:layout_constraintStart_toEndOf="@+id/button_addItem"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_number" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
